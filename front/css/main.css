@@ -66,20 +66,34 @@ header p{
 }
 .item hr{
 	color: #D7D7D7;
-    background-color: #D7D7D7;
-    height: 1px;
-    border: none;
-    margin-left: 75px;
+	background-color: #D7D7D7;
+	height: 1px;
+	border: none;
+	margin-left: 75px;
 }
 
 
 /*art*/
 .container-art{
-	background: red;
-	height: 98vh;
-	width: 96vw;
+	background: var(--gray);
+	height: calc(98vh - 30px);
+	width: calc(96vw - 30px);
 	position: absolute;
 	top: calc(50% - 49vh);
 	left: calc(50% - 48vw);
 	border-radius: 10px;
+	padding: 15px;
+}
+.container-art h3{
+	font-family: Medium;
+	font-size: 16px;
+	color: var(--black);
+}
+.container-art p{
+	font-size: 12px;
+	font-family: Medium;
+	color: var(--black);
+	margin: 0;
+	letter-spacing: 1px;
+	line-height: 17px;
 }

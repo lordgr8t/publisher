@@ -12,5 +12,13 @@ if ($req == "renderPopularRequest") {
     echo json_encode($data);
 }
 
+if ($req == "renderArt") {
+    $artNum = $_POST['artNum'];
+    $stmt = $connection->prepare("SELECT `id`, `name`, `descript` FROM `art` WHERE `id` = $artNum");
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $data = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($data);
+}
 
 ?>

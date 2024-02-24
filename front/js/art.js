@@ -1,13 +1,14 @@
 $(document).ready(function() {
-	// renderPopularRequest(2);
+	renderArt(2);
 });
 
-function renderPopularRequest(argument) {
-	let req = "renderPopularRequest";
+function renderArt(argument) {
+	let req = "renderArt";
+	let artNum = 2;
 	$.ajax({
 		url: "../server/requests.php",
 		type: "POST",
-		data: ({req: req}),
+		data: ({req: req, artNum: artNum}),
 		dataType: "json",
 		beforeSend: funcB,
 		success: funcS
@@ -21,11 +22,27 @@ function renderPopularRequest(argument) {
 		data = JSON.stringify(data);
 		data = JSON.parse(data);
 		let gettedJson = data;
+		console.log(gettedJson);
+		
+		// считаем сколько символов влезет на страницу
+		let viewBlockHeight = Math.floor($('.container-art').height()) - 30;
+		let viewBlockWidth = Math.floor($('.container-art').width()) - 30;
+		let canChart = Math.floor((viewBlockHeight / 17) * (viewBlockWidth / 6));
 
-		// отрисовываем айтемы
-		var JSONlength = Object.keys(gettedJson).length;
-		for (let i = 0; i < JSONlength; i++) {
-			$('.container').append('<div class="item" itemID ="' + gettedJson[i]["id"] + '"> <div class="df aic"> <div> <img class="cover" src="data/covers/' + gettedJson[i]["img"] + '"> </div> <div class="w-75"> <h3>' + gettedJson[i]["name"] + '</h3> <p>' + gettedJson[i]["short_desc"] + '</p> </div> <div> <img src="front/img/next-arrow.svg" > </div> </div> <hr> </div>');
+		// дробим текст на куски
+		var text = gettedJson[0]['descript'];
+		var chunks = [];
+		for (var i = 0; i < text.length; i += canChart) {
+			chunks.push(text.substr(i, canChart));
 		}
+
+		console.log(chunks);
+
+		console.log(canChart)
+
+
+		// ширина буквы 6
+		// высота 17
 	}
 }
+
