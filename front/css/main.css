@@ -20,6 +20,9 @@ h1{
 .container{
 	padding: 0 15px;
 }
+.w-75{
+	width: 75%;
+}
 /**/
 header{
 	background-image: url(../img/header-bg.svg);
