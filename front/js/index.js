@@ -2,8 +2,6 @@ $(document).ready(function() {
 	renderPopularRequest(2);
 });
 
-
-
 function renderPopularRequest(argument) {
 	let req = "renderPopularRequest";
 	$.ajax({

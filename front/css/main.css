@@ -71,3 +71,15 @@ header p{
     border: none;
     margin-left: 75px;
 }
+
+
+/*art*/
+.container-art{
+	background: red;
+	height: 98vh;
+	width: 96vw;
+	position: absolute;
+	top: calc(50% - 49vh);
+	left: calc(50% - 48vw);
+	border-radius: 10px;
+}
